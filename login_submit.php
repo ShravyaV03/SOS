@@ -15,9 +15,9 @@ if($check_user>0){
     $_SESSION['USER_MAIL']=$row['email'];
     $_SESSION['USER_ROLE']=$row['role'];
     if($_SESSION['USER_ROLE']==1){
-    echo"<script>window.location.href='ngo.php'</script>";
-    }else{
     echo"<script>window.location.href='donor.php'</script>";
+    }else{
+    echo"<script>window.location.href='ngo.php'</script>";
     }
 
     // if(!isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID']!=''){
