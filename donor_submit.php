@@ -3,7 +3,7 @@ if(isset($_POST['email']) && $_POST['email']!=''){
     require('connection.php');
     require('functions.php');
     $donor=$_SESSION['USER_ID'];
-    $title=get_safe_value($con,$_POST['email']);
+    $title=get_safe_value($con,$_POST['title']);
     $des=get_safe_value($con,$_POST['description']);
     $email=get_safe_value($con,$_POST['email']);
     $contact=get_safe_value($con,$_POST['contact']);

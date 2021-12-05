@@ -58,7 +58,12 @@ require('functions.php');
                         </a>
                         <h2>
                             <?php echo $row['title'] ?>
-                            <small><?php echo $row['donor'] ?></small>
+                            <small>From <?php 
+                            $uuid=$row['donor'];
+                            $res1=mysqli_query($con,"SELECT `users`.`name` FROM `users` WHERE `users`.`id`='$uuid'");
+                            $row1=mysqli_fetch_assoc($res1);
+                            echo $row1['name']; ?>
+                            </small>
                         </h2>
                     </div>
                     <div class="card-flap flap1">
