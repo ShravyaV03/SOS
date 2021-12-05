@@ -12,5 +12,5 @@ if(isset($_POST['email']) && $_POST['email']!=''){
     $added_on=date('Y-m-d h:i:s');
     mysqli_query($con,"INSERT INTO `donations`(`id`, `title`, `des`, `email`, `contact`, `location`, `donor`,`taken_by`, `added_on`, `status`) VALUES (NULL,'$title','$des','$email','$contact','$location','$donor',NULL,'$added_on','1')");
     echo"<script>alert('ThankYou for your donation')</script>";
-echo"<script>window.location.href='donor.html'</script>";
+echo"<script>window.location.href='donor.php'</script>";
 }
