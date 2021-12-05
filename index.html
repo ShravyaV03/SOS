@@ -113,20 +113,7 @@
 
         <div id="cd-signup">
           <!-- sign up form -->
-          <form class="cd-form">
-            <p class="fieldset">
-              <label class="image-replace cd-username" for="signup-username"
-                >Username</label
-              >
-              <input
-                class="full-width has-padding has-border"
-                id="signup-username"
-                type="text"
-                placeholder="Username"
-              />
-              <span class="cd-error-message">Error message here!</span>
-            </p>
-
+          <form class="cd-form" action="register_submit.php" method="POST">
             <p class="fieldset">
               <label class="image-replace cd-email" for="signup-email"
                 >E-mail</label
@@ -135,8 +122,20 @@
                 class="full-width has-padding has-border"
                 id="signup-email"
                 type="email"
+                name="email"
                 placeholder="E-mail"
               />
+              <span class="cd-error-message">Error message here!</span>
+            </p>
+            <p class="fieldset">
+              <label class="image-replace cd-email" for="signin-email"
+                >Role</label
+              >
+              <select name="role" id="role" class="login-select">
+                <option value="0">Please select your role</option>
+                <option value="1">NGO</option>
+                <option value="2">DONOR</option>
+              </select>
               <span class="cd-error-message">Error message here!</span>
             </p>
 
@@ -148,6 +147,7 @@
                 class="full-width has-padding has-border"
                 id="signup-password"
                 type="text"
+                name="pass"
                 placeholder="Password"
               />
               <a href="#0" class="hide-password">Hide</a>
