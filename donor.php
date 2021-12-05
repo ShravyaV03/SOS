@@ -30,7 +30,7 @@ $uid=$_SESSION['USER_ID'];
         <nav class="main-nav">
             <ul>
                 <!-- inser more links here -->
-                <li><a class="cd-signin" href="#0">logout</a></li>
+                <li><a class="cd-signin" href="logout.php">logout</a></li>
             </ul>
         </nav>
     </header>
