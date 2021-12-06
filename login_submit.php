@@ -4,7 +4,6 @@ require('functions.php');
 
 $email=get_safe_value($con,$_POST['email']);
 $pass=get_safe_value($con,$_POST['pass']);
-$role=get_safe_value($con,$_POST['role']);
 $res=mysqli_query($con,"SELECT * FROM `users` WHERE `users`.`email`='$email' and `users`.`pass`='$pass'");
 $check_user=mysqli_num_rows($res);
 

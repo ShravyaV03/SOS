@@ -1,6 +1,11 @@
 <?php
 require('connection.php');
 require('functions.php');
+if(isset($_GET['a']) && $_GET['a']!=''){
+    $itemid=$_GET['a'];
+    $uuuid=$_SESSION['USER_ID'];
+    mysqli_query($con,"UPDATE `donations` SET `status`='2',`taken_by`='$uuuid' WHERE `donations`.`id`='$itemid'");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +48,7 @@ require('functions.php');
             <div class="cards">
 
                 <?php
-                $res=mysqli_query($con,'SELECT * FROM `donations` ');
+                $res=mysqli_query($con,"SELECT * FROM `donations` WHERE `donations`.`status`='1'");
                 while($row=mysqli_fetch_assoc($res)){
 ?>
                 <div class="card">
@@ -76,11 +81,13 @@ require('functions.php');
                         <div class="card-description">
                             Location: <?php echo $row['location'] ?>
                         </div>
-                        <div class="card-flap flap2">
-                            <div class="card-actions">
-                                <a href="#" class="btn">Accept</a>
+                        <a href="donor.php?a=<?php echo $row['id'];?>">
+                            <div class="card-flap flap2">
+                                <div class="card-actions">
+                                    <a href="donor.php?a=<?php echo $row['id'];?>" class="btn">Accept</a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <?php } ?>
