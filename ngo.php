@@ -1,11 +1,6 @@
 <?php
 require('connection.php');
 require('functions.php');
-if(isset($_GET['a']) && $_GET['a']!=''){
-    $itemid=$_GET['a'];
-    $uuuid=$_SESSION['USER_ID'];
-    mysqli_query($con,"UPDATE `donations` SET `status`='2',`taken_by`='$uuuid' WHERE `donations`.`id`='$itemid'");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +23,7 @@ if(isset($_GET['a']) && $_GET['a']!=''){
 <body>
     <header role="banner">
         <div id="cd-logo">
-            <a href="#0">Saviours Of Starvation</a>
+            <a href="#">Saviours Of Starvation</a>
         </div>
 
         <nav class="main-nav">
@@ -61,8 +56,8 @@ if(isset($_GET['a']) && $_GET['a']!=''){
                             <span class="left"></span>
                             <span class="right"></span>
                         </a>
-                        <h2>
-                            <?php echo $row['title'] ?>
+                        <h2><a href="accept.php?a=<?php echo $row['id'];?>">
+                            <?php echo $row['title'] ?></a>
                             <small>From <?php 
                             $uuid=$row['donor'];
                             $res1=mysqli_query($con,"SELECT `users`.`name` FROM `users` WHERE `users`.`id`='$uuid'");
@@ -81,10 +76,10 @@ if(isset($_GET['a']) && $_GET['a']!=''){
                         <div class="card-description">
                             Location: <?php echo $row['location'] ?>
                         </div>
-                        <a href="donor.php?a=<?php echo $row['id'];?>">
+                        <a href="accept.php?a=<?php echo $row['id'];?>">
                             <div class="card-flap flap2">
                                 <div class="card-actions">
-                                    <a href="donor.php?a=<?php echo $row['id'];?>" class="btn">Accept</a>
+                                    <a href="accept.php?a=<?php echo $row['id'];?>" class="btn">Accept</a>
                                 </div>
                             </div>
                         </a>
@@ -97,7 +92,7 @@ if(isset($_GET['a']) && $_GET['a']!=''){
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/card.js"></script>
+    <!-- <script src="js/card.js"></script> -->
 </body>
 
 </html>
